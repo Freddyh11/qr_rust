@@ -2,7 +2,7 @@
 
 //use std::env;
 use std::fs;
-use fast_qr::{ECL, Version, QRBuilder};
+use fast_qr::QRBuilder;
 
 
 fn main() {
@@ -14,11 +14,8 @@ fn main() {
 
         println!("Contents: \n{}", contents); 
 
-        for _line in contents.lines() {
-            let qrcode = QRBuilder::new("URL.txt".into())
-            .ecl(ECL::H)
-            .version(Version::V03)
-            .build();
+        for line in contents.lines() {
+            let qrcode = QRBuilder::new(line.to_string()).build();
             
         qrcode.unwrap().print();
         }

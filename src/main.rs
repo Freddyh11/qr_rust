@@ -7,7 +7,6 @@ use fast_qr::QRBuilder;
 
 fn main() {
    
-    println!("In file {}", "URL.txt");
 
     let contents = fs::read_to_string("URL.txt")
         .expect("Should have been able to read the file");
